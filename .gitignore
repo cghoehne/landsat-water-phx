@@ -4,3 +4,4 @@
 .Ruserdata
 data/landsat/Landsat7/*
 data/landsat/Landsat8/*
+outputs/*

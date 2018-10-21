@@ -1,0 +1,298 @@
+id,Organism,Count_Type,Cell_Number,Count_Number,Volume,Class,Cell_Volume
+20170307S,Dinoflag ,stripe,10,2,10,Flagelletes,883.546875
+20170307S,Cent_Dia,stripe,171.5,2,10,Diatoms,58.903125
+20170307S,Crypt,stripe,47.5,2,10,Cryptophytes,209.4333333
+20170307S,Eug,stripe,29.5,2,10,Euglenoids,2094.333333
+20170307S,Platy,stripe,10,2,10,Chlorophytes,268.0746667
+20170307S,Chloro,stripe,18,2,10,Chlorophytes,268.0746667
+20170307S,Prymn1_2,stripe,35.5,2,10,Prymnesiophytes,1.76709375
+20170307S,Prymn2_3,stripe,172.5,2,10,Prymnesiophytes,8.180989583
+20170307S,Prymn3_5,stripe,265,2,10,Prymnesiophytes,33.50933333
+20170307S,Prymn_5,stripe,20.5,2,10,Prymnesiophytes,220.8867188
+20170307S,Chrysochrom,stripe,19.5,2,10,Prymnesiophytes,33.50933333
+20170307S,Cyano,large_square,423.57,10,10,Filamentous_Cyanbacteria,115.450125
+20170307S,Syn,large_square,93,10,10,Synechococcus,0.523583333
+20170404S,Dinoflag ,stripe,1,2,5,Flagelletes,883.546875
+20170404S,Cent_Dia,stripe,162,2,5,Diatoms,58.903125
+20170404S,Crypt,stripe,48,2,5,Cryptophytes,209.4333333
+20170404S,Eug,stripe,8,2,5,Euglenoids,2094.333333
+20170404S,Platy,stripe,9,2,5,Chlorophytes,268.0746667
+20170404S,Chloro,stripe,14,2,5,Chlorophytes,268.0746667
+20170404S,Prymn1_2,stripe,2,2,5,Prymnesiophytes,1.76709375
+20170404S,Prymn2_3,stripe,361,2,5,Prymnesiophytes,8.180989583
+20170404S,Prymn3_5,stripe,658,2,5,Prymnesiophytes,33.50933333
+20170404S,Prymn_5,stripe,52,2,5,Prymnesiophytes,220.8867188
+20170404S,Chrysochrom,stripe,169,2,5,Prymnesiophytes,33.50933333
+20170404S,Cyano,large_square,4.29,5,5,Filamentous_Cyanbacteria,115.450125
+20170404S,Syn,large_square,300,5,5,Synechococcus,0.523583333
+20170503S,Dinoflag ,stripe,25,2,5,Flagelletes,883.546875
+20170503S,Dinoflag,stripe,32,2,5,Flagelletes,883.546875
+20170503S,Pen_Dia,stripe,49,2,5,Diatoms,323.9671875
+20170503S,Cent_Dia,stripe,117,2,5,Diatoms,58.903125
+20170503S,Crypt,stripe,45,2,5,Cryptophytes,209.4333333
+20170503S,Eug,stripe,8,2,5,Euglenoids,2094.333333
+20170503S,Platy,stripe,13,2,5,Chlorophytes,268.0746667
+20170503S,Prymn2_3,stripe,200,2,5,Prymnesiophytes,8.180989583
+20170503S,Prymn_5,stripe,149,2,5,Prymnesiophytes,220.8867188
+20170503S,Chrysochrom,stripe,24,2,5,Prymnesiophytes,33.50933333
+20170503S,Cyano,large_square,38.57,5,5,Filamentous_Cyanbacteria,115.450125
+20170503S,Syn,large_square,154,5,5,Synechococcus,0.523583333
+20170602S,Dinoflag ,stripe,1,2,5,Flagelletes,883.546875
+20170602S,Dinoflag,stripe,2,2,5,Flagelletes,883.546875
+20170602S,Pen_Dia,stripe,5,2,5,Diatoms,323.9671875
+20170602S,Cent_Dia,stripe,83,2,5,Diatoms,58.903125
+20170602S,Crypt,stripe,59,2,5,Cryptophytes,209.4333333
+20170602S,Platy,stripe,45,2,5,Chlorophytes,268.0746667
+20170602S,Prymn1_2,stripe,15,2,5,Prymnesiophytes,1.76709375
+20170602S,Prymn2_3,stripe,46,2,5,Prymnesiophytes,8.180989583
+20170602S,Prymn3_5,stripe,156,2,5,Prymnesiophytes,33.50933333
+20170602S,Prymn_5,stripe,175,2,5,Prymnesiophytes,220.8867188
+20170602S,Chrysochrom,stripe,21,2,5,Prymnesiophytes,33.50933333
+20170602S,Cyano,large_square,74.29,10,5,Filamentous_Cyanbacteria,115.450125
+20170602S,Syn,large_square,83,10,5,Synechococcus,0.523583333
+20170602S,Wispy_Cylin,large_square,54,10,5,Filamentous_Cyanbacteria,22.775875
+20170715S,Dinoflag ,stripe ,20,2,4,Flagelletes,883.546875
+20170715S,Pen_Dia,stripe ,64,2,4,Diatoms,323.9671875
+20170715S,Cent_Dia,stripe ,70,2,4,Diatoms,58.903125
+20170715S,Platy,stripe ,52,2,4,Chlorophytes,268.0746667
+20170715S,Prymn1_2,stripe ,36,2,4,Prymnesiophytes,1.76709375
+20170715S,Prymn2_3,stripe ,78,2,4,Prymnesiophytes,8.180989583
+20170715S,Prymn3_5,stripe ,66,2,4,Prymnesiophytes,33.50933333
+20170715S,Prymn_5,stripe ,710,2,4,Prymnesiophytes,220.8867188
+20170715S,Horseshoe,stripe ,28,2,4,Chlorophytes,34.5565
+20170715S,Cyano,large_square,52.86,10,4,Filamentous_Cyanbacteria,115.450125
+20170715S,Syn,large_square,141,10,4,Synechococcus,0.523583333
+20170715S,Wispy_Cylin,stripe ,416,2,4,Filamentous_Cyanbacteria,22.775875
+20170804S,Prymn2_3,field,72,20,3,Prymnesiophytes,8.180989583
+20170804S,Prymn3_5,field,76,20,3,Prymnesiophytes,33.50933333
+20170804S,Prymn_5,field,64,20,3,Prymnesiophytes,220.8867188
+20170804S,Cyano,large_square,114.29,10,3,Filamentous_Cyanbacteria,115.450125
+20170804S,Syn,large_square,79,10,3,Synechococcus,0.523583333
+20170804S,Wispy_Cylin,large_square,64,10,3,Filamentous_Cyanbacteria,22.775875
+20170905S,Pen_Dia,field ,3,10,4,Diatoms,323.9671875
+20170905S,Cent_Dia,field ,12,10,4,Diatoms,58.903125
+20170905S,Crypt,field ,2,10,4,Cryptophytes,209.4333333
+20170905S,Eug,field ,6,10,4,Euglenoids,2094.333333
+20170905S,Chloro,field ,12,10,4,Chlorophytes,268.0746667
+20170905S,Prymn1_2,stripe,36,1,4,Prymnesiophytes,1.76709375
+20170905S,Prymn2_3,stripe,84,1,4,Prymnesiophytes,8.180989583
+20170905S,Prymn3_5,stripe,48,1,4,Prymnesiophytes,33.50933333
+20170905S,Prymn_5,stripe,184,1,4,Prymnesiophytes,220.8867188
+20170905S,Cyano,large_square,68,10,4,Filamentous_Cyanbacteria,115.450125
+20170905S,Syn,large_square,150,10,4,Synechococcus,0.523583333
+20170905S,Wispy_Cylin,field ,64,10,4,Filamentous_Cyanbacteria,22.775875
+20171004S,Pen_Dia,field ,12,10,4,Diatoms,323.9671875
+20171004S,Eug,field ,4,10,4,Euglenoids,2094.333333
+20171004S,Chloro,field ,2,10,4,Chlorophytes,268.0746667
+20171004S,Prymn2_3,field ,24,30,4,Prymnesiophytes,8.180989583
+20171004S,Prymn3_5,field ,30,30,4,Prymnesiophytes,33.50933333
+20171004S,Prymn_5,field ,108,30,4,Prymnesiophytes,220.8867188
+20171004S,Cyano,large_square,60,10,4,Filamentous_Cyanbacteria,115.450125
+20171004S,Syn,large_square,282,10,4,Synechococcus,0.523583333
+20171004S,Wispy_Cylin,field ,114,10,4,Filamentous_Cyanbacteria,22.775875
+20171116S,Pen_Dia,field ,1,10,4,Diatoms,323.9671875
+20171116S,Crypt,field ,4,10,4,Cryptophytes,209.4333333
+20171116S,Eug,field ,1,10,4,Euglenoids,2094.333333
+20171116S,Chloro,field ,12,10,4,Chlorophytes,268.0746667
+20171116S,Small_Chloro,field ,17,10,4,Chlorophytes,4.188666667
+20171116S,Prymn3_5,stripe,39,10,2,Prymnesiophytes,33.50933333
+20171116S,Prymn_5,stripe,68,10,2,Prymnesiophytes,220.8867188
+20171116S,Cyano,field ,183,10,4,Filamentous_Cyanbacteria,115.450125
+20171116S,Syn,field ,69,10,4,Synechococcus,0.523583333
+20171116S,Wispy_Cylin,field ,6,10,4,Filamentous_Cyanbacteria,22.775875
+20171215S,Dinoflag ,field ,6,10,10,Flagelletes,883.546875
+20171215S,Crypt,field ,10,10,10,Cryptophytes,209.4333333
+20171215S,Eug,field ,5,10,10,Euglenoids,2094.333333
+20171215S,Prymn1_2,field ,157,10,10,Prymnesiophytes,1.76709375
+20171215S,Prymn_5,field ,9,10,10,Prymnesiophytes,220.8867188
+20171215S,Cyano,field ,10,10,10,Filamentous_Cyanbacteria,115.450125
+20171215S,Syn,field ,18,10,10,Synechococcus,0.523583333
+20180104S,Prymn1_2,field ,82,8,10,Prymnesiophytes,1.76709375
+20180104S,Prymn_5,field ,24,8,10,Prymnesiophytes,220.8867188
+20180104S,Syn,field ,19,8,10,Synechococcus,0.523583333
+20180221S,Nanoflag,stripe,53,2,15,Flagelletes,113.094
+20180221S,Pen_Dia,stripe,56,2,15,Diatoms,323.9671875
+20180221S,Cent_Dia,stripe,42,2,15,Diatoms,58.903125
+20180221S,Crypt,stripe,27,2,15,Cryptophytes,209.4333333
+20180221S,Eug,stripe,35,2,15,Euglenoids,2094.333333
+20180221S,Chloro,stripe,32,2,15,Chlorophytes,268.0746667
+20180221S,Small_Chloro,stripe,34,2,15,Chlorophytes,4.188666667
+20180221S,Prymn2_3,stripe,45,2,15,Prymnesiophytes,8.180989583
+20180221S,Prymn3_5,stripe,234,2,15,Prymnesiophytes,33.50933333
+20180221S,Syn,stripe,32,2,15,Synechococcus,0.523583333
+20180312S,Large_Pen_Dia,field,38,40,10,Diatoms,240.32475
+20180312S,Crypt,field,80,40,10,Cryptophytes,209.4333333
+20180312S,Chloro,field,80,40,10,Chlorophytes,268.0746667
+20180312S,Prymn3_5,field,52,40,10,Prymnesiophytes,33.50933333
+20180312S,Prymn_5,field,104,40,10,Prymnesiophytes,220.8867188
+20180321S,Pen_Dia,field,28,20,15,Diatoms,323.9671875
+20180321S,Crypt,field,26,20,15,Cryptophytes,209.4333333
+20180321S,Small_Chloro,field,64,20,15,Chlorophytes,4.188666667
+20180321S,Prymn3_5,field,80,20,15,Prymnesiophytes,33.50933333
+20180321S,Prymn_5,field,74,20,15,Prymnesiophytes,220.8867188
+20170406P,Dinoflag ,stripe ,15,2,20,Flagelletes,883.546875
+20170406P,Nanoflag,stripe ,73,2,20,Flagelletes,113.094
+20170406P,Cent_Dia,stripe ,12,2,20,Diatoms,58.903125
+20170406P,Platy,stripe ,179,2,20,Chlorophytes,268.0746667
+20170406P,Prymn3_5,stripe ,70,2,20,Prymnesiophytes,33.50933333
+20170406P,Prymn_5,stripe ,72,2,20,Prymnesiophytes,220.8867188
+20170406P,Syn,large_square,14,5,20,Synechococcus,0.523583333
+20170504P,Dinoflag ,stripe ,116,2,20,Flagelletes,883.546875
+20170504P,Nanoflag,stripe ,107,2,20,Flagelletes,113.094
+20170504P,Cent_Dia,stripe ,32,2,20,Diatoms,58.903125
+20170504P,Chloro,stripe ,317,2,20,Chlorophytes,268.0746667
+20170504P,Prymn3_5,stripe ,224,2,20,Prymnesiophytes,33.50933333
+20170504P,Syn,large_square,114,5,20,Synechococcus,0.523583333
+20170601P,Dinoflag ,stripe ,64,2,15,Flagelletes,883.546875
+20170601P,Nanoflag,stripe ,126,2,15,Flagelletes,113.094
+20170601P,Cent_Dia,stripe ,26,2,15,Diatoms,58.903125
+20170601P,Chloro,stripe ,328,2,15,Chlorophytes,268.0746667
+20170601P,Prymn1_2,stripe ,870,2,15,Prymnesiophytes,1.76709375
+20170601P,Prymn2_3,stripe ,62,2,15,Prymnesiophytes,8.180989583
+20170601P,Prymn3_5,stripe ,22,2,15,Prymnesiophytes,33.50933333
+20170601P,Prymn_5,stripe ,12,2,15,Prymnesiophytes,220.8867188
+20170601P,Chrysochrom,stripe ,8,2,15,Prymnesiophytes,33.50933333
+20170601P,Cyano,large_square,62.82,20,15,Filamentous_Cyanbacteria,115.450125
+20170601P,Syn,large_square,72,10,15,Synechococcus,0.523583333
+20170713P,Dinoflag ,stripe ,8,2,5,Flagelletes,883.546875
+20170713P,Nanoflag,stripe ,100,2,5,Flagelletes,113.094
+20170713P,Pen_Dia,stripe ,32,2,5,Diatoms,323.9671875
+20170713P,Cent_Dia,stripe ,48,2,5,Diatoms,58.903125
+20170713P,Small_Pen_Dia,stripe ,1234,2,5,Diatoms,323.9671875
+20170713P,Syn,large_square,9,10,5,Synechococcus,0.523583333
+20170803P,Cent_Dia,field,4,10,5,Diatoms,58.903125
+20170803P,Small_Pen_Dia,field,158,20,5,Diatoms,323.9671875
+20170803P,Syn,large_square,101,10,5,Synechococcus,0.523583333
+20170907P,Dinoflag ,field,12,20,8,Flagelletes,883.546875
+20170907P,Chloro,field,164,20,8,Chlorophytes,268.0746667
+20170907P,Prymn2_3,field,72,20,8,Prymnesiophytes,8.180989583
+20170907P,Prymn3_5,field,56,20,8,Prymnesiophytes,33.50933333
+20170907P,Syn,large_square,140,10,8,Synechococcus,0.523583333
+20170907P,Wispy_Cyano,field,12,20,8,Filamentous_Cyanbacteria,22.775875
+20171003P,Eug,field,2,10,10,Euglenoids,2094.333333
+20171003P,Prymn3_5,field,102,10,10,Prymnesiophytes,33.50933333
+20171003P,Prymn_5,field,2,10,10,Prymnesiophytes,220.8867188
+20171003P,Cyano,large_square,12,20,10,Filamentous_Cyanbacteria,115.450125
+20171003P,Syn,large_square,86,10,10,Synechococcus,0.523583333
+20171206P,Nanoflag,large_square,12,10,15,Flagelletes,113.094
+20171206P,Pen_Dia,field,4,10,15,Diatoms,323.9671875
+20171206P,Cent_Dia,field,2,10,15,Diatoms,58.903125
+20171206P,Small_Chloro,field,30,10,15,Chlorophytes,4.188666667
+20171206P,Cyano,field,6,10,15,Filamentous_Cyanbacteria,115.450125
+20171206P,Syn,field,110,10,15,Synechococcus,0.523583333
+20180124P,Nanoflag,field,8,10,15,Flagelletes,113.094
+20180124P,Cent_Dia,field,10,10,15,Diatoms,58.903125
+20180124P,Crypt,field,6,10,15,Cryptophytes,209.4333333
+20180124P,Prymn1_2,field,18,10,15,Prymnesiophytes,1.76709375
+20180124P,Prymn3_5,field,17,10,15,Prymnesiophytes,33.50933333
+20180124P,Syn,field,253,10,15,Synechococcus,0.523583333
+20180207P,Dinoflag ,stripe ,2,2,15,Flagelletes,883.546875
+20180207P,Pen_Dia,stripe ,80,2,15,Diatoms,323.9671875
+20180207P,Cent_Dia,stripe ,23,2,15,Diatoms,58.903125
+20180207P,Crypt,stripe ,7,2,15,Cryptophytes,209.4333333
+20180207P,Eug,stripe ,2,2,15,Euglenoids,2094.333333
+20180207P,Chloro,stripe ,45,2,15,Chlorophytes,268.0746667
+20180207P,Small_Chloro,stripe ,10,2,15,Chlorophytes,4.188666667
+20180207P,Prymn2_3,stripe ,24,2,15,Prymnesiophytes,8.180989583
+20180207P,Prymn3_5,stripe ,20,2,15,Prymnesiophytes,33.50933333
+20180207P,Prymn_5,stripe ,23,2,15,Prymnesiophytes,220.8867188
+20180207P,Syn,large_square,56,2,20,Synechococcus,0.523583333
+20180321P,Chloro,field ,44,20,15,Chlorophytes,268.0746667
+20180321P,Prymn3_5,field ,62,20,15,Prymnesiophytes,33.50933333
+20180321P,Syn,large_square,54,20,15,Synechococcus,0.523583333
+20170307B,Cent_Dia,stripe,150,2,5,Diatoms,58.903125
+20170307B,Crypt,stripe,60,2,5,Cryptophytes,209.4333333
+20170307B,Platy,stripe,921.5,2,5,Chlorophytes,268.0746667
+20170307B,Prymn_5,stripe,22,2,5,Prymnesiophytes,220.8867188
+20170307B,Chrysochrom,stripe,26.5,2,5,Prymnesiophytes,33.50933333
+20170404B,Dinoflag,stripe,431,2,5,Flagelletes,883.546875
+20170404B,Nanoflag,stripe,648,2,5,Flagelletes,113.094
+20170404B,Cent_Dia,stripe,80,2,5,Diatoms,58.903125
+20170404B,Large_Cent_Dia,stripe,162,2,5,Diatoms,392.6875
+20170404B,Crypt,stripe,114,2,5,Cryptophytes,209.4333333
+20170404B,Eug,stripe,12,2,5,Euglenoids,2094.333333
+20170404B,Chloro,stripe,7,2,5,Chlorophytes,268.0746667
+20170404B,Prymn3_5,stripe,19,2,5,Prymnesiophytes,33.50933333
+20170404B,Prymn_5,stripe,81,2,5,Prymnesiophytes,220.8867188
+20170404B,Chrysochrom,stripe,29,2,5,Prymnesiophytes,33.50933333
+20170504B,Dinoflag ,stripe,21,2,5,Flagelletes,883.546875
+20170504B,Dinoflag,stripe,25,2,5,Flagelletes,883.546875
+20170504B,Cent_Dia,stripe,63,2,5,Diatoms,58.903125
+20170504B,Large_Cent_Dia,stripe,127,2,5,Diatoms,392.6875
+20170504B,Crypt,stripe,15,2,5,Cryptophytes,209.4333333
+20170504B,Eug,stripe,14,2,5,Euglenoids,2094.333333
+20170504B,Platy,stripe,75,2,5,Chlorophytes,268.0746667
+20170504B,Prymn3_5,stripe,12,2,5,Prymnesiophytes,33.50933333
+20170504B,Prymn_5,stripe,47,2,5,Prymnesiophytes,220.8867188
+20170504B,Syn,large_square,884,10,5,Synechococcus,0.523583333
+20170504B,Anabaena,large_square,25.57,10,5,Filamentous_Cyanbacteria,102.6223333
+20170601B,Cyano,large_square,29,10,2,Filamentous_Cyanbacteria,115.450125
+20170601B,Syn,large_square,7,10,2,Synechococcus,0.523583333
+20170601B,Anabaena,large_square,141,10,2,Filamentous_Cyanbacteria,102.6223333
+20170601B,Wispy_Cyano,large_square,52,10,2,Filamentous_Cyanbacteria,22.775875
+20170713B,Dinoflag ,stripe ,30,2,3,Flagelletes,883.546875
+20170713B,Nanoflag,stripe ,80,2,3,Flagelletes,113.094
+20170713B,Pen_Dia,stripe ,464,2,3,Diatoms,323.9671875
+20170713B,Cent_Dia,stripe ,128,2,3,Diatoms,58.903125
+20170713B,Prymn3_5,stripe ,268,2,3,Prymnesiophytes,33.50933333
+20170713B,Syn,large_square,4,10,3,Synechococcus,0.523583333
+20170713B,Wispy_Cyano,large_square,55,10,3,Filamentous_Cyanbacteria,22.775875
+20170803B,Cent_Dia,field ,16,10,4,Diatoms,58.903125
+20170803B,Prymn1_2,field ,3,10,4,Prymnesiophytes,1.76709375
+20170803B,Prymn2_3,field ,4,10,4,Prymnesiophytes,8.180989583
+20170803B,Prymn3_5,field ,20,10,4,Prymnesiophytes,33.50933333
+20170803B,Prymn_5,field ,6,10,4,Prymnesiophytes,220.8867188
+20170803B,Syn,large_square,121,10,4,Synechococcus,0.523583333
+20170803B,Wispy_Cyano,large_square,41,10,4,Filamentous_Cyanbacteria,22.775875
+20170907B,Pen_Dia,field ,164,10,5,Diatoms,323.9671875
+20170907B,Prymn3_5,field ,8,10,5,Prymnesiophytes,33.50933333
+20170907B,Cyano,field ,36,10,5,Filamentous_Cyanbacteria,115.450125
+20170907B,Syn,large_square,134,10,5,Synechococcus,0.523583333
+20170907B,Wispy_Cyano,large_square,77,10,5,Filamentous_Cyanbacteria,22.775875
+20171003B,Pen_Dia,large_square,60,10,5,Diatoms,323.9671875
+20171003B,Cyano,large_square,53,10,5,Filamentous_Cyanbacteria,115.450125
+20171003B,Syn,large_square,17,10,5,Synechococcus,0.523583333
+20171003B,Wispy_Cyano,large_square,8,10,5,Filamentous_Cyanbacteria,22.775875
+20171117B,Pen_Dia,stripe ,60,2,5,Diatoms,323.9671875
+20171117B,Cent_Dia,stripe ,46,2,5,Diatoms,58.903125
+20171117B,Crypt,stripe ,28,2,5,Cryptophytes,209.4333333
+20171117B,Eug,stripe ,14,2,5,Euglenoids,2094.333333
+20171117B,Chloro,stripe ,22,2,5,Chlorophytes,268.0746667
+20171117B,Prymn1_2,stripe ,6,2,5,Prymnesiophytes,1.76709375
+20171117B,Prymn2_3,stripe ,5,2,5,Prymnesiophytes,8.180989583
+20171117B,Prymn3_5,stripe ,14,2,5,Prymnesiophytes,33.50933333
+20171117B,Prymn_5,stripe ,19,2,5,Prymnesiophytes,220.8867188
+20171117B,Chrysochrom,stripe ,14,2,5,Prymnesiophytes,33.50933333
+20171117B,Cyano,stripe ,101,1,5,Filamentous_Cyanbacteria,115.450125
+20171117B,Syn,stripe ,9,1,5,Synechococcus,0.523583333
+20171117B,Wispy_Cyano,stripe ,44,2,5,Filamentous_Cyanbacteria,22.775875
+20171117B,Scenedesmus,stripe ,23,2,5,Chlorophytes,240.32475
+20171206B,Nanoflag,field,15,15,10,Flagelletes,113.094
+20171206B,Pen_Dia,field,6,15,10,Diatoms,323.9671875
+20171206B,Cent_Dia,field,20,15,10,Diatoms,58.903125
+20171206B,Large_Cent_Dia,field,2,15,10,Diatoms,392.6875
+20171206B,Crypt,field,14,15,10,Cryptophytes,209.4333333
+20171206B,Eug,field,7,15,10,Euglenoids,2094.333333
+20171206B,Prymn1_2,field,8,15,10,Prymnesiophytes,1.76709375
+20171206B,Prymn2_3,field,3,15,10,Prymnesiophytes,8.180989583
+20171206B,Prymn_5,field,13,15,10,Prymnesiophytes,220.8867188
+20171206B,Chrysochrom,field,4,15,10,Prymnesiophytes,33.50933333
+20171206B,Horseshoe,field,11,15,10,Chlorophytes,34.5565
+20171206B,Syn,field,5,15,10,Synechococcus,0.523583333
+20171206B,Scenedesmus,field,4,15,10,Chlorophytes,240.32475
+20180123B,Nanoflag,field,40,40,10,Flagelletes,113.094
+20180123B,Small_Chloro,field,40,40,10,Chlorophytes,4.188666667
+20180123B,Prymn1_2,field,16,40,10,Prymnesiophytes,1.76709375
+20180123B,Prymn3_5,field,8,40,10,Prymnesiophytes,33.50933333
+20180123B,Prymn_5,field,20,40,10,Prymnesiophytes,220.8867188
+20180123B,Wispy_Cyano,field,8,40,10,Filamentous_Cyanbacteria,22.775875
+20180123B,Scenedesmus,field,32,40,10,Chlorophytes,240.32475
+20180207B,Dinoflag ,field,3,10,10,Flagelletes,883.546875
+20180207B,Cent_Dia,field,94,10,10,Diatoms,58.903125
+20180207B,Crypt,field,20,10,10,Cryptophytes,209.4333333
+20180207B,Chloro,field,12,10,10,Chlorophytes,268.0746667
+20180207B,Small_Chloro,field,10,10,10,Chlorophytes,4.188666667
+20180207B,Prymn3_5,field,15,10,10,Prymnesiophytes,33.50933333
+20180207B,Prymn_5,field,9,10,10,Prymnesiophytes,220.8867188
+20180321B,Chloro,field,121,10,3,Chlorophytes,268.0746667
+20180321B,Syn,field,34,10,3,Synechococcus,0.523583333
