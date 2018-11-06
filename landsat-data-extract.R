@@ -33,7 +33,7 @@ lapply(list.of.packages, library, character.only = TRUE)
 satellites <- list.dirs(here("data/landsat"), recursive = F)          
 
 # load csv with site lat longs (change to your points of intreset)
-my.sites <- read.csv(here("in-situ/my_sites.csv"))
+my.sites <- read.csv(here("data/in-situ/my_sites.csv"))
 
 # convert data frame of lat-long points to coordinates (SpatialPointDataFrame)
 sites.proj <- my.sites
@@ -101,8 +101,8 @@ save.image(file = here("outputs/landsat_data_extract.RData"))
 ####################################################
 # data analysis for chloro & TSS
 
-#rm(list=ls())   # remove all the variables from the workspace 
-#gc() # refresh memory
+rm(list=ls())   # remove all the variables from the workspace 
+gc() # refresh memory
 
 # store today's data
 #today <- format(Sys.Date(),"%Y%m%d")
@@ -112,8 +112,8 @@ save.image(file = here("outputs/landsat_data_extract.RData"))
 #past.run <- today
 
 # read chloro & TSS data
-chloro.data <- read.csv(here("data/in-situ/chlorophyll_data.csv"))
-TSS.data <- read.csv(here("data/in-situ/TSS_data.csv"))
+chloro.data <- fread(here("data/in-situ/chlorophyll_data.csv"))
+TSS.data <- fread(here("data/in-situ/TSS_data.csv"))
 
 # merge sample data
 sample.data <- merge(chloro.data,TSS.data, by = c("Site","Date"), all = T)
@@ -124,20 +124,19 @@ rm(chloro.data,TSS.data)
 sample.data <- sample.data[sample.data$Site %in% c("B1","P1","P4","S1","S2","S5"),]
 
 # read back in landsat data extracted for our sites
-#L7.data <- read.csv(paste0("R_Codes/R_Outputs/",past.run,"_my_sites_extract_data_Landsat7.csv"), stringsAsFactors = F)
-#L8.data <- read.csv(paste0("R_Codes/R_Outputs/",past.run,"_my_sites_extract_data_Landsat8.csv"), stringsAsFactors = F)
-L7.data <- readRDS(here("outputs/my_sites_Landsat7_data.rds"))
-L8.data <- readRDS(here("outputs/my_sites_Landsat8_data.rds"))
+L7.data <- fread(here("outputs/my_sites_Landsat7_data.csv"))
+L8.data <- fread(here("outputs/my_sites_Landsat8_data.csv"))
+
 
 # add column for satellite and reorder cols in old data
 L7.data$Sat <- 7
 L8.data$Sat <- 8
 
 # bind landsat data together
-all.data <- rbind.fill(L7.data,L8.data)
+all.data <- as.data.table(plyr::rbind.fill(L7.data,L8.data))
 
-# extract Date and Band from name ('X' column)
-names(all.data)[names(all.data) == 'X'] <- "Date"
+# extract Date and Band from name ('V1' column)
+names(all.data)[names(all.data) == 'V1'] <- "Date"
 all.data$Band <- substr(all.data$Date, 42, nchar(all.data$Date))
 all.data$Date <- substr(all.data$Date,16,23)
 
@@ -150,6 +149,11 @@ all.data <- melt(all.data, id = c("Date","Band","Sat"), variable.name = "Site")
 
 # cast landsat data (reformat)
 all.data <- dcast(all.data, Date + Site + Sat ~ Band, fun.aggregate = mean)
+
+# keep only relevant columns
+all.data <- all.data[, .(Date,Site,Sat,LINEAGEQA,PIXELQA,RADSATQA,
+                         SRAEROSOLQA,SRATMOSOPACITYQA,SRB1,SRB2,
+                         SRB3,SRB4,SRB5,SRB6,SRB7,SRCLOUDQA)]
 
 # adjust bands on Landsat 8
 all.data$SRB1 <- ifelse(all.data$Sat == 8, all.data$SRB2, all.data$SRB1)

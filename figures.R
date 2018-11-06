@@ -26,7 +26,7 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 
 # load list of dependant packages
-lapply(list.of.packages, library, character.only = TRUE)
+invisible(lapply(list.of.packages, library, character.only = TRUE))
 
 options(scipen=10000)  # supress scientific notation
 #font_import(prompt = F) # import local fonts (only necessary once per device, time consuming)
@@ -902,7 +902,7 @@ algae.data.agg.combo$label.fix <- format(as.Date(algae.data.agg.combo$Date), "%b
 
 # read old data / all data
 #meta.old <- read.csv("X:/Dropbox (ASU)/Chris-Jaz/Landsat_data_all/20180529_all_old_data.csv", stringsAsFactors = F)
-meta.old <- read.csv(here("outputs/backups/20180610_all_data.csv"), stringsAsFactors = F)
+meta.old <- read.csv(here("outputs/all_extracted_sat_data.csv"), stringsAsFactors = F)
 new.chloro <- read.csv(here("data/in-situ/chlorophyll_data.csv"), stringsAsFactors = F)
 new.tss <- read.csv(here("data/in-situ/TSS_data.csv"), stringsAsFactors = F)
 
