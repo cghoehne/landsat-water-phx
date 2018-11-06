@@ -1,7 +1,8 @@
 # This purpose of this script is to loop through and extract 
 # Landsat 7 & 8 geotiff raster data at given coordinates (points of intrest).
 
-#rm(list=ls())   #remove all the variables from the workspace
+rm(list=ls())   #remove all the variables from the workspace
+gc()
 
 # create list of dependant packages
 list.of.packages <- c("sp",
@@ -95,21 +96,8 @@ for(satellite in satellites){
   all.site.data <- all.site.data[0,]
 }
 
-# because the previous loop can be time intensive, we save it incase we need to reload from here
-save.image(file = here("outputs/landsat_data_extract.RData"))
-
 ####################################################
-# data analysis for chloro & TSS
-
-rm(list=ls())   # remove all the variables from the workspace 
-gc() # refresh memory
-
-# store today's data
-#today <- format(Sys.Date(),"%Y%m%d")
-
-# store the date of the past run (loop above) to make sure you load the most recent data
-# by default this is todays date, change to a string of an older date if you are reloading an old run
-#past.run <- today
+# prep of chloro & TSS data
 
 # read chloro & TSS data
 chloro.data <- fread(here("data/in-situ/chlorophyll_data.csv"))
@@ -184,5 +172,8 @@ merged.nearest.1day <- merged.nearest[merged.nearest$DayDif <= 1,]
 write.csv(merged.nearest, here("outputs/merged_nearest_data.csv"))
 write.csv(merged.nearest.1day, here("outputs/merged_1day_data.csv"))
 write.csv(all.data, here("outputs/all_extracted_sat_data.csv"))
+
+# save workspace
+save.image(file = here("outputs/landsat_data_extract.RData"))
 
 # END
