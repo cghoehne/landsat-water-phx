@@ -30,8 +30,10 @@ invisible(lapply(list.of.packages, library, character.only = TRUE))
 
 options(scipen=10000)  # supress scientific notation
 #font_import(prompt = F) # import local fonts (only necessary once per device, time consuming)
-loadfonts(device = "win") # load fonts
+loadfonts(device = "win", quiet = T) # load fonts
 
+# load data from data-prep script
+load(here("outputs/figure-data.RData"))
 
 ### FIG 1: BARTLETT time series cholro, TSS, temp, & DO
 {

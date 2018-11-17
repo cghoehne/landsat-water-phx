@@ -26,12 +26,7 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 
 # load list of dependant packages
-invisible(lapply(list.of.packages, library, character.only = TRUE))
-
-options(scipen=10000)  # supress scientific notation
-#font_import(prompt = F) # import local fonts (only necessary once per device, time consuming)
-loadfonts(device = "win") # load fonts
-
+invisible(lapply(list.of.packages, library, character.only = T))
 
 
 #######################################
@@ -243,4 +238,5 @@ merged.nearest$DayDif <- abs(difftime(merged.nearest$SatDate, merged.nearest$Sam
 meta.old$Site <- factor(meta.old$Site, levels = c('B1','P1','S2'))
 meta.old$Site <- mapvalues(meta.old$Site, from = c('B1','P1','S2'), to = c("Bartlett", "Pleasant", "Saguaro"))
 
+save.image(here("outputs/figure-data.RData"))
 

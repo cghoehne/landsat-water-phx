@@ -1,0 +1,358 @@
+---
+title: "Russell M.S. Thesis Figures"
+author: "Chris Hoehne and Jazmine Russell"
+date: "November 17, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+# default to knitr option of code printing
+knitr::opts_chunk$set(echo = TRUE)
+
+# create list of dependant packages
+list.of.packages <- c("data.table",
+                      "plyr",
+                      "tidyverse",
+                      "reshape2",
+                      "foreign",
+                      "lubridate",
+                      "ggExtra",
+                      "grid",
+                      "gridExtra",
+                      "scales",
+                      "RColorBrewer",
+                      "ggthemes",
+                      "extrafont",
+                      "units",
+                      "xtable",
+                      "knitr",
+                      "tinytex",
+                      "here")
+
+# install any missing packages
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# load list of dependant packages
+invisible(lapply(list.of.packages, library, character.only = TRUE))
+
+# store loaded packages and thier version in a data.frame
+package.info <- data.frame("Package" = list.of.packages, "Version" = unlist(lapply(list.of.packages, function (x) as.character(packageVersion(x)))))
+
+options(scipen=10000)  # supress scientific notation
+#font_import(prompt = F) # import local fonts (only necessary once per device, time consuming)
+loadfonts(device = "win", quiet = T) # load fonts
+
+# load data from data-prep script
+load(here("outputs/figure-data.RData"))
+
+```
+
+```{r Figure 1, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+{
+  Fig.1a <- (ggplot(data = meta.stats[Site == "Bartlett" & Variable == "Chlorophyll"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             #+ geom_segment(aes(x = 1900, y = 0, xend = 2020, yend = 0))
+             #+ geom_segment(aes(x = 1900, y = 0, xend = 1900, yend = 8000000))
+             + scale_y_continuous(name = expression("Chlorophyll ("~mu~"g/L)")) #"Chlorophyll \n (?g/L)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Bartlett"]), max(meta.stats$Date[meta.stats$Site == "Bartlett"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black"),
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.1b <- (ggplot(data = meta.stats[Site == "Bartlett" & Variable == "TSS"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = "TSS (mg/L)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Bartlett"]), max(meta.stats$Date[meta.stats$Site == "Bartlett"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black"), 
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.1c <- (ggplot(data = meta.stats[Site == "Bartlett" & Variable == "Temperature"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = expression("Temperature ("~degree~"C)")) #"Temperature \n (? C)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Bartlett"]), max(meta.stats$Date[meta.stats$Site == "Bartlett"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black"), 
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.1d <- (ggplot(data = meta.stats[Site == "Bartlett" & Variable == "Dissolved Oxygen"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = "Dissolved Oxygen (%)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Bartlett"]), max(meta.stats$Date[meta.stats$Site == "Bartlett"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black", margin = unit(c(2, 0, 2, 0), "mm")), # add a little space between x axis title), 
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.1a <- arrangeGrob(Fig.1a, top = textGrob("(a)", x = unit(5, "mm"), y   = unit(3, "mm"), just = c("left","top"),
+                                               gp = gpar(col="black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.1b <- arrangeGrob(Fig.1b, top = textGrob("(b)", x = unit(5, "mm"), y = unit(3, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.1c <- arrangeGrob(Fig.1c, top = textGrob("(c)", x = unit(5, "mm"), y  = unit(5, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.1d <- arrangeGrob(Fig.1d, top = textGrob("(d)", x = unit(5, "mm") , y = unit(7, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.1 <- grid.arrange(Fig.1a, Fig.1b, Fig.1c, Fig.1d, nrow = 4,
+                        bottom = textGrob("Date", gp = gpar(fontface = "plain", fontfamily = "Times New Roman", fontsize = 14))
+  )
+}
+
+
+```
+
+Figure 1 - BARTLETT time series of cholro, TSS, temp, & DO
+
+```{r Figure 2, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+{
+  Fig.2a <- (ggplot(data = meta.stats[Site == "Saguaro" & Variable == "Chlorophyll"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = expression("Chlorophyll ("~mu~"g/L)"))
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Saguaro"]), max(meta.stats$Date[meta.stats$Site == "Saguaro"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black"),
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.2b <- (ggplot(data = meta.stats[Site == "Saguaro" & Variable == "TSS"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = "TSS (mg/L)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Saguaro"]), max(meta.stats$Date[meta.stats$Site == "Saguaro"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black"), 
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.2c <- (ggplot(data = meta.stats[Site == "Saguaro" & Variable == "Temperature"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = expression("Temperature ("~degree~"C)"))#"Temperature \n (? C)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Saguaro"]), max(meta.stats$Date[meta.stats$Site == "Saguaro"])))
+             #+ ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black"), 
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.2d <- (ggplot(data = meta.stats[Site == "Saguaro" & Variable == "Dissolved Oxygen"])
+             + geom_ribbon(aes(x = Date, ymin = Value - (1.96 * SE), ymax = Value + (1.96 * SE)), fill = "grey70")
+             + geom_line(aes(x = Date, y = Value), size = 1)
+             + geom_point(aes(x = Date, y = Value), size = 1.4)
+             + scale_y_continuous(name = "Dissolved Oxygen (%)")
+             + scale_x_date(limits = c(min(meta.stats$Date[meta.stats$Site == "Saguaro"]), max(meta.stats$Date[meta.stats$Site == "Saguaro"])))
+             + ggtitle("")
+             + theme_minimal()
+             + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                     plot.title = element_text(hjust = 0.47, size = 11),
+                     axis.title.y = element_text(size = 13, face = "plain"),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_text(size = 10, colour = "black", margin = unit(c(2, 0, 2, 0), "mm")), # add a little space between x axis title), 
+                     axis.text.y = element_text(size = 10, colour = "black"),
+                     axis.line = element_line(size = .5, color = "black"),
+                     plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+             )
+  )
+  
+  Fig.2a <- arrangeGrob(Fig.2a, top = textGrob("(a)", x = unit(5, "mm"), y   = unit(3, "mm"), just = c("left","top"),
+                                               gp = gpar(col="black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.2b <- arrangeGrob(Fig.2b, top = textGrob("(b)", x = unit(5, "mm"), y = unit(3, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.2c <- arrangeGrob(Fig.2c, top = textGrob("(c)", x = unit(5, "mm"), y  = unit(5, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.2d <- arrangeGrob(Fig.2d, top = textGrob("(d)", x = unit(5, "mm") , y = unit(7, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+  
+  Fig.2 <- grid.arrange(Fig.2a, Fig.2b, Fig.2c, Fig.2d, nrow = 4,
+                        bottom = textGrob("Date", gp = gpar(fontface = "plain", fontfamily = "Times New Roman", fontsize = 14))
+  )
+}
+
+```
+Figure 2 - SAGUARO time series cholro, TSS, temp, & DO
+
+```{r Figure 3, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 3
+
+```{r Figure 4, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 4
+
+```{r Figure 5, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 5
+
+```{r Figure 6, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 6
+
+```{r Figure 7, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 7
+
+```{r Figure 8, echo = F, fig.height = 3.5, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 8
+
+```{r Figure 9, echo = F, fig.height = 3.5, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 9
+
+```{r Figure 10, echo = F, fig.height = 3.5, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 10
+
+```{r Figure 11, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 11
+
+```{r Figure 12, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 12
+
+```{r Figure 13, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 13
+
+```{r Figure 14, echo = F, fig.height = 7, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 14
+
+```{r Figure 15, echo = F, fig.height = 4, fig.width = 6.5, message = F, warning = F}
+
+
+
+```
+Figure 15
+
+
+
+
+This document was compiled using R `r getRversion()`, R Markdown, and the data was processed and presented using following packages:  
+
+```{r appendix, echo = FALSE, results = 'asis'}
+
+# hide xtable global comment option
+options(xtable.comment = FALSE)
+
+# output table of packages used with packages listed in alphabetical order
+print(xtable(package.info[order(package.info$Package),], row.names = NULL), include.rownames=FALSE, type = "html")
+
+```
