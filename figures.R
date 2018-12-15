@@ -891,6 +891,169 @@ Fig.15 <- (ggplot(data = meta.old[meta.old$Site == "Pleasant"  & !is.na(meta.old
             )
 )
 
+###
+
+# Fig 13 new
+
+meta.old[, month.day := format(Date, format="%m-%d")] # strip year
+meta.old[, month.day := as.Date(paste0("2018-",month.day))] # force all years to same year but hide year in plot
+
+Fig.13a.n <- (ggplot(data = meta.old[meta.old$Site == "Saguaro" & !is.na(meta.old$sag_chl_est) & !is.nan(meta.old$sag_chl_est) & meta.old$Sat == 7,]) #  
+            + geom_smooth(aes(x = month.day, y = sag_chl_est))
+            #+ geom_line(aes(x = month.day, y = sag_chl_est), size = .6)
+            + geom_point(aes(x = month.day, y = sag_chl_est), size = .8)
+            #+ geom_point(data = merged.nearest[merged.nearest$Site == "S2" & merged.nearest$DayDif < 2,], aes(x = Date, y = Chlorophyll), size = 1.2, color = "red")
+            + scale_y_continuous(name = "Chlorophyll Estimate (B/G) \n (μg/L)", limits = c(0, ceiling(max(meta.old$sag_chl_est, na.rm = T))))
+            + scale_x_date(limits = c(min(meta.old$month.day), max(meta.old$month.day)), date_labels = "%b")
+            #+ ggtitle("")
+            + theme_minimal()
+            + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                    plot.title = element_text(hjust = 0.47, size = 11),
+                    axis.title.y = element_text(size = 13, face = "plain"),
+                    axis.title.x = element_blank(),
+                    axis.text.x = element_text(size = 10, colour = "black"),
+                    axis.text.y = element_text(size = 10, colour = "black"),
+                    axis.line = element_line(size = .5, color = "black"),
+                    plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+            )
+)
+
+Fig.13b.n <- (ggplot(data = meta.old[meta.old$Site == "Saguaro"  & !is.na(meta.old$sag_tss_est) & !is.nan(meta.old$sag_tss_est) & meta.old$Sat == 7,]) # 
+            + geom_smooth(aes(x = month.day, y = sag_tss_est))
+            #+ geom_line(aes(x = month.day, y = sag_tss_est), size = .6)
+            + geom_point(aes(x = month.day, y = sag_tss_est), size = .8)
+            #+ geom_point(data = merged.nearest[merged.nearest$Site == "S2" & merged.nearest$DayDif < 2,], aes(x = month.day, y = TSS), size = 1.2, color = "red")
+            + scale_y_continuous(name = "TSS Estimate (B/G) \n (mg/mL)", limits = c(0, 10))
+            + scale_x_date(limits = c(min(meta.old$month.day), max(meta.old$month.day)), date_labels = "%b")
+            #+ ggtitle("")
+            + theme_minimal()
+            + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                    plot.title = element_text(hjust = 0.47, size = 11),
+                    axis.title.y = element_text(size = 13, face = "plain"),
+                    axis.title.x = element_blank(),
+                    axis.text.x = element_text(size = 10, colour = "black"),
+                    axis.text.y = element_text(size = 10, colour = "black"),
+                    axis.line = element_line(size = .5, color = "black"),
+                    plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+            )
+)
+
+Fig.13a.n <- arrangeGrob(Fig.13a.n, top = textGrob("(a)", x = unit(5, "mm"), y   = unit(3, "mm"), just = c("left","top"),
+                                               gp = gpar(col="black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+
+Fig.13b.n <- arrangeGrob(Fig.13b.n, top = textGrob("(b)", x = unit(5, "mm"), y = unit(3, "mm"), just = c("left","top"),
+                                               gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+
+Fig.13.n <- grid.arrange(Fig.13a.n, Fig.13b.n, nrow = 2,
+                       bottom = textGrob("Month (all years)", gp = gpar(fontface = "plain", fontfamily = "Times New Roman", fontsize = 14))
+)
+
+# Fig 13 new 2
+meta.old[, month := month(Date, label = T, abbr = T)] # month column
+meta.old[, year := year(Date)] # year column
+meta.old[month %in% c("Jun","Jul","Aug"), Season := "Summer"]
+meta.old[month %in% c("Nov","Dec","Jan"), Season := "Winter"]
+meta.old[month %in% c("Feb","Mar","Apr","May"), Season := "Spring"]
+meta.old[month %in% c("Sep","Oct"), Season := "Fall"]
+
+meta.old.ssn.avg <- meta.old[, `:=`(mean.sag.chl = mean(sag_chl_est, na.rm = T),
+                                    mean.sag.tss = mean(sag_tss_est, na.rm = T)), 
+                              by = c("Season","year","Sat","Site")]
+
+Fig.13a.n2 <- (ggplot(data = meta.old.ssn.avg[Season %in% c("Summer","Winter") & Site == "Saguaro" & !is.na(mean.sag.chl) & !is.nan(mean.sag.chl) & Sat == 7,]) #  
+              + geom_smooth(aes(x = year, y = mean.sag.chl, color = Season))
+              + geom_point(aes(x = year, y = mean.sag.chl, color = Season))
+              + scale_y_continuous(name = "Mean Chlorophyll \n Estimate (B/G) (μg/L)", limits = c(0, 30))
+              + scale_x_continuous(limits = c(min(meta.old.ssn.avg$year), max(meta.old.ssn.avg$year)))
+              + scale_color_manual(values=c("Summer" = "red", "Winter" = "blue"))
+              + theme_minimal()
+              + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                      plot.title = element_text(hjust = 0.47, size = 11),
+                      axis.title.y = element_text(size = 13, face = "plain"),
+                      axis.title.x = element_blank(),
+                      axis.text.x = element_text(size = 10, colour = "black"),
+                      axis.text.y = element_text(size = 10, colour = "black"),
+                      axis.line = element_line(size = .5, color = "black"),
+                      plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+              )
+)
+
+Fig.13b.n2 <- (ggplot(data = meta.old.ssn.avg[Season %in% c("Summer","Winter") & Site == "Saguaro" & !is.na(mean.sag.tss) & !is.nan(mean.sag.tss) & Sat == 7,]) #  
+               + geom_smooth(aes(x = year, y = mean.sag.tss, color = Season))
+               + geom_point(aes(x = year, y = mean.sag.tss, color = Season))               
+               + scale_y_continuous(name = "Mean TSS \n  Estimate (B/G) (mg/mL)", limits = c(0, 6))
+              + scale_x_continuous(limits = c(min(meta.old.ssn.avg$year), max(meta.old.ssn.avg$year)))
+              + scale_color_manual(values=c("Summer" = "red", "Winter" = "blue"))
+              + theme_minimal()
+              + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                      plot.title = element_text(hjust = 0.47, size = 11),
+                      axis.title.y = element_text(size = 13, face = "plain"),
+                      axis.title.x = element_blank(),
+                      axis.text.x = element_text(size = 10, colour = "black"),
+                      axis.text.y = element_text(size = 10, colour = "black"),
+                      axis.line = element_line(size = .5, color = "black"),
+                      plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+              )
+)
+
+Fig.13a.n2 <- arrangeGrob(Fig.13a.n2, top = textGrob("(a)", x = unit(5, "mm"), y   = unit(3, "mm"), just = c("left","top"),
+                                                   gp = gpar(col="black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+
+Fig.13b.n2 <- arrangeGrob(Fig.13b.n2, top = textGrob("(b)", x = unit(5, "mm"), y = unit(3, "mm"), just = c("left","top"),
+                                                   gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+
+Fig.13.n2 <- grid.arrange(Fig.13a.n2, Fig.13b.n2, nrow = 2,
+                         bottom = textGrob("Year", gp = gpar(fontface = "plain", fontfamily = "Times New Roman", fontsize = 14))
+)
+
+# Fig 13 new 3
+meta.old.yr.avg <- meta.old[, `:=`(mean.sag.chl = mean(sag_chl_est, na.rm = T),
+                                    mean.sag.tss = mean(sag_tss_est, na.rm = T)), 
+                             by = c("year","Sat","Site")]
+
+Fig.13a.n3 <- (ggplot(data = meta.old.yr.avg[Site == "Saguaro" & !is.na(mean.sag.chl) & !is.nan(mean.sag.chl) & Sat == 7,]) #  
+               + geom_smooth(aes(x = year, y = mean.sag.chl))
+               + geom_point(aes(x = year, y = mean.sag.chl))
+               + scale_y_continuous(name = "Mean Chlorophyll \n Estimate (B/G) (μg/L)", limits = c(0, 20))
+               + scale_x_continuous(limits = c(min(meta.old.yr.avg$year), max(meta.old.yr.avg$year)))
+               + theme_minimal()
+               + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                       plot.title = element_text(hjust = 0.47, size = 11),
+                       axis.title.y = element_text(size = 13, face = "plain"),
+                       axis.title.x = element_blank(),
+                       axis.text.x = element_text(size = 10, colour = "black"),
+                       axis.text.y = element_text(size = 10, colour = "black"),
+                       axis.line = element_line(size = .5, color = "black"),
+                       plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+               )
+)
+
+Fig.13b.n3 <- (ggplot(data = meta.old.yr.avg[Site == "Saguaro" & !is.na(mean.sag.tss) & !is.nan(mean.sag.tss) & Sat == 7,]) #  
+               + geom_smooth(aes(x = year, y = mean.sag.tss))
+               + geom_point(aes(x = year, y = mean.sag.tss))               
+               + scale_y_continuous(name = "Mean TSS \n  Estimate (B/G) (mg/mL)", limits = c(0, 5))
+               + scale_x_continuous(limits = c(min(meta.old.yr.avg$year), max(meta.old.yr.avg$year)))
+               + theme_minimal()
+               + theme(text = element_text(colour = "black", size = 12, family = "Times New Roman"),
+                       plot.title = element_text(hjust = 0.47, size = 11),
+                       axis.title.y = element_text(size = 13, face = "plain"),
+                       axis.title.x = element_blank(),
+                       axis.text.x = element_text(size = 10, colour = "black"),
+                       axis.text.y = element_text(size = 10, colour = "black"),
+                       axis.line = element_line(size = .5, color = "black"),
+                       plot.margin=unit(c(1, 5, 1, 1), units = "mm")  # add a little space to right side of plot
+               )
+)
+
+Fig.13a.n3 <- arrangeGrob(Fig.13a.n3, top = textGrob("(a)", x = unit(5, "mm"), y   = unit(3, "mm"), just = c("left","top"),
+                                                     gp = gpar(col="black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+
+Fig.13b.n3 <- arrangeGrob(Fig.13b.n3, top = textGrob("(b)", x = unit(5, "mm"), y = unit(3, "mm"), just = c("left","top"),
+                                                     gp = gpar(col = "black", fontsize = 14, fontface = "plain", fontfamily = "Times New Roman")))
+
+Fig.13.n3 <- grid.arrange(Fig.13a.n3, Fig.13b.n3, nrow = 2,
+                          bottom = textGrob("Year", gp = gpar(fontface = "plain", fontfamily = "Times New Roman", fontsize = 14))
+)
 
 ggsave(here("outputs/figures/Figure_1_Bartlett.tiff"), Fig.1, device = "tiff", scale = 1, width = 6.5, height = 7, dpi = 300, units = "in")
 ggsave(here("outputs/figures/Figure_2_Saguaro.tiff"), Fig.2, device = "tiff", scale = 1, width = 6.5, height = 7, dpi = 300, units = "in")
@@ -908,4 +1071,6 @@ ggsave(here("outputs/figures/Figure_13_Saguaro_estimates_new.tiff"),Fig.13, devi
 ggsave(here("outputs/figures/Figure_14_Bartlett_estimates_new.tiff"), Fig.14, device = "tiff", scale = 1, width = 6.5, height = 7, dpi = 300, units = "in")
 ggsave(here("outputs/figures/Figure_15_Pleasant_estimate.tiff"),  Fig.15, device = "tiff", scale = 1, width = 6.5, height = 4, dpi = 300, units = "in")
 
-
+ggsave(here("outputs/figures/Figure_13_Saguaro_estimates_new_bymonth.tiff"),Fig.13.n, device = "tiff", scale = 1, width = 6.5, height = 7, dpi = 300, units = "in")
+ggsave(here("outputs/figures/Figure_13_Saguaro_estimates_new_byseason.tiff"),Fig.13.n2, device = "tiff", scale = 1, width = 6.5, height = 7, dpi = 300, units = "in")
+ggsave(here("outputs/figures/Figure_13_Saguaro_estimates_new_byyear.tiff"),Fig.13.n3, device = "tiff", scale = 1, width = 6.5, height = 7, dpi = 300, units = "in")
